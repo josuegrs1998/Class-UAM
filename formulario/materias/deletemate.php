@@ -4,11 +4,11 @@ include('../conexion.php');
 $idmateria = $_GET['pn'];
 $query = "DELETE   from materias where idmateria = '$idmateria'";
 
-$data = mysqli_query($conn, $query);
+$data = mysqli_query($conexion, $query);
 if($data)
 {
    
-    header("Location: http://localhost/formulario/materias/materias.php");
+    header("Location: http://localhost:8080/formulario/materias/materias.php");
 }
 else 
 {

@@ -1,6 +1,6 @@
 <?php 
 
-	$conexion=mysqli_connect('localhost','root','','Universidad');
+include('../conexion.php');
  
  ?>
 

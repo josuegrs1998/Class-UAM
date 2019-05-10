@@ -1,6 +1,6 @@
 <?php 
 
-	$conexion=mysqli_connect('localhost','root','','Universidad');
+include('../conexion.php');
  
  ?>
 
@@ -72,15 +72,15 @@
 			
 			<div class="form col">
 			<h2>Registrar</h2>	
-				<form action="insertmate.php" method="POST" autocomplete="off" pattern="\S">
+				<form action="insertmate.php" method="POST" autocomplete="off">
 					<p>ID Materia</p>
 					
 					<br>
-					<input type="text" name="idmateria" placeholder="idmateria" maxlength="8" pattern="^[0-9]*$" required>
+					<input type="text" name="idmateria" placeholder="Id Materia" maxlength="8" pattern="^[0-9]*$" required>
 					<p>Nombre</p>
 					
 					<br>
-					<input type="text" name="nombre" placeholder="Nombre" maxlength="45" pattern="^[A-Za-z]+$" required>
+					<input type="text" name="nombre" placeholder="Nombre" maxlength="45" required>
 					
 					<br>
 					<br>

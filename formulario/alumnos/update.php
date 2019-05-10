@@ -47,13 +47,13 @@ $_GET['cl'];
             $apellido = $_GET['apellido'];
 
             $query ="UPDATE alumnos SET  nombre= '$nombre', apellido='$apellido', idalumno='$idalumno' WHERE idalumno='$idalumno' or nombre= '$nombre' or apellido='$apellido'  ";
-            $data = mysqli_query($conn, $query);
+            $data = mysqli_query($conexion, $query);
             if($data)
             {
-                header("Location: http://localhost/formulario/alumnos/alumnos.php");
+                header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
             }
             else{
-                header("Location: http://localhost/formulario/alumnos/alumnos.php");
+                header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
             }
         }
       

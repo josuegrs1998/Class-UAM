@@ -9,12 +9,12 @@ include('../conexion.php');
 	//hacemos la sentencia de sql
 	$sql="INSERT INTO alumnos VALUES('$cif','$nombre','$apellido')";
 	//verificamos la ejecucion
-	if(mysqli_query($conn, $sql)){
-		header("Location: http://localhost/formulario/alumnos/alumnos.php");
+	if(mysqli_query($conexion, $sql)){
+		header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
 		
 	}
 	else{
-		header("Location: http://localhost/formulario/alumnos/alumnos.php");
+		echo "error";
 	
 		
 	}

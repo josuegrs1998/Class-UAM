@@ -1,6 +1,6 @@
 <?php 
 
-	$conexion=mysqli_connect('localhost','root','','Universidad');
+include('../conexion.php');
  
  ?>
 
@@ -40,7 +40,7 @@
 								</tr>
 
 							<?php 
-							$sql="SELECT * from materias_alumnos";
+							$sql="SELECT * from materias_alumnos ORDER BY idalumno";
 							$result=mysqli_query($conexion,$sql);
 
 							while($mostrar=mysqli_fetch_array($result)){
@@ -70,11 +70,11 @@
 			
 			<div class="form col">
 			<h2>Registrar</h2>	
-				<form action="insertmatricula.php" method="POST" autocomplete="off" pattern="\S">
+				<form action="insertmatricula.php" method="POST" autocomplete="off">
 					<p>ID Alumno</p>
 					
 					<br>
-					<input type="text" name="idalumno" placeholder="idalumno" maxlength="8" pattern="^[0-9]*$" required>
+					<input type="text" name="idalumno" placeholder="Id Alumno" maxlength="8" pattern="^[0-9]*$" required>
 					<p>ID Materia</p>
 					
                     <br>

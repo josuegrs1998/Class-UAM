@@ -44,13 +44,13 @@ $_GET['sn'];
          
 
             $query ="UPDATE materias SET  nombre= '$nombre', idmateria='$idmateria' WHERE idmateria='$idmateria' or nombre= '$nombre' ";
-            $data = mysqli_query($conn, $query);
+            $data = mysqli_query($conexion, $query);
             if($data)
             {
-                header("Location: http://localhost/formulario/materias/materias.php");
+                header("Location: http://localhost:8080/formulario/materias/materias.php");
             }
             else{
-                header("Location: http://localhost/formulario/materias/materias.php");
+                header("Location: http://localhost:8080/formulario/materias/materias.php");
             }
         }
       
