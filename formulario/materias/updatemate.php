@@ -24,7 +24,7 @@ $_GET['sn'];
         <br>
     <div class="form col" >
     <form action="" method="GET" autocomplete="off"  >
-		<p>ID Docente</p>
+		<p>ID Materia</p>
 		<br>
         <input type="text" name="idmateria" placeholder="idmateria" maxlength="8" required value="<?php echo $_GET['rn']; ?>" >
         
@@ -43,7 +43,7 @@ $_GET['sn'];
             $nombre = $_GET['nombre'];
          
 
-            $query ="UPDATE materias SET  nombre= '$nombre', idmateria='$idmateria' WHERE idmateria='$idmateria' or nombre= '$nombre' ";
+            $query ="UPDATE materias SET  nombre= '$nombre' WHERE idmateria='$idmateria' or nombre='$nombre' ";
             $data = mysqli_query($conexion, $query);
             if($data)
             {

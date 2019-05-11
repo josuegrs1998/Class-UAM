@@ -18,23 +18,17 @@ include('../conexion.php');
 </head>
 <body background-color: #fff>
 <div id="container">
-    <div class="sidebar">
-            <li ><a class="menu" href='../main.php'>Home</a> </li>
-            <li> <a class="menu" href='../alumnos/alumnos.php'>Alumnos</a></li>
-            <li> <a class="menu" href='../profesores/profesores.php'>Profesores</a></li>
-            <li> <a class="menu" href='../materias/materias.php'>Materias</a></li>
-            <li> <a class="menu" href='../matricula/matricula.php'>Matricula</a></li>
-            <li> <a class="menu" href='reportes.php'>Reportes</a></li>
-
-    </div>
+        <?php include ('../sidebar.php')?>
 
     <div id="main">
             <div class="contenedor-tabla"> 
                 <h2>Matricula de alumnos</h2>
-                    <table class="tabla">
+                <input type="text" name="search" id="search" class="form-control" placeholder="Buscar en tabla" />  
+					<br>
+                    <table class="tabla" id="buscador">
                             <tr>
                                 <td>ID alumno</td>
-                                <td>Alumnos</td>
+                                <td>Nombre del alumno</td>
                                 <td>ID materia</td>
                                 <td>Materia</td>
                                 
@@ -61,8 +55,10 @@ include('../conexion.php');
                     <?php 
                     }
                     ?>
+                    </table>
                     </div>
                 </div>	
      
 </body>
 </html>
+<?php include ('../main/searchbar.php')?>  

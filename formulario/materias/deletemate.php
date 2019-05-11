@@ -12,7 +12,7 @@ if($data)
 }
 else 
 {
-    echo "Sorry, ERROR";
+    header("Location: http://localhost:8080/formulario/materias/materias.php");
 }
 
 ?>

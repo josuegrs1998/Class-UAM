@@ -26,7 +26,7 @@ $_GET['cl'];
     <form action="" method="GET" autocomplete="off"  >
 		<p>ID Docente</p>
 		<br>
-        <input type="text" name="iddocente" placeholder="iddocente" maxlength="8" required value="<?php echo $_GET['rn']; ?>" >
+        <input type="text" name="iddocente" placeholder="iddocente" maxlength="8" required value="<?php echo $_GET['rn']; ?>" DISABLED>
         
 		<p>Nombre</p>
 		<br>
@@ -47,14 +47,14 @@ $_GET['cl'];
             $nombre = $_GET['nombre'];
             $apellido = $_GET['apellido'];
 
-            $query ="UPDATE docentes SET  nombre= '$nombre', apellido='$apellido', iddocente='$iddocente' WHERE iddocente='$iddocente' or nombre= '$nombre' or apellido='$apellido'  ";
+            $query ="UPDATE docentes SET  nombre= '$nombre', apellido='$apellido' WHERE iddocente='$iddocente' or nombre= '$nombre' or apellido='$apellido'  ";
             $data = mysqli_query($conexion, $query);
             if($data)
             {
                 header("Location: http://localhost:8080/formulario/profesores/profesores.php");
             }
             else{
-                header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
+               echo "No se pudo actualizar";
             }
         }
       

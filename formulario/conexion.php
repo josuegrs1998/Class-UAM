@@ -1,4 +1,5 @@
 <?php
+
 	$servername = "localhost";
 	$username = "josue";
 	$password = "password";
@@ -14,5 +15,7 @@
 
 	
 	$conexion=mysqli_connect('localhost','josue','password','universidad');
+
+
 	
     ?>

@@ -14,7 +14,7 @@
  #main{ 
      background-color:rgb(21, 32, 43);
      width: 90%;
-     height: 100vh;
+     padding-bottom: 100vh;
      display: flex;
      justify-content: space-between;
      padding: 50px 20% 0 20%;
@@ -26,18 +26,28 @@
      width: 10%;
      height: 100vh;
      background: rgb(46, 59, 73);
-   
- }
- 
- 
- .sidebar{
      list-style: none;
      color: white;
      display: flex;
      flex-direction: column;
      align-items: center;
      padding-top: 25px;
+   
  }
+
+ .sidebar li {
+     padding-top: 6%;
+     height: 5%;
+     width: 100%;
+     text-align: center;
+     background-color:  rgb(46, 59, 73);
+ }
+ .sidebar li:hover{
+    background-color: rgb(41, 158, 173);
+ }
+
+ 
+
  
  .contenedor-tabla{
      display: flex;
@@ -151,4 +161,18 @@
 
 .mainh2{
     color: white;
+    margin-bottom: 10%;
 }
+
+ #btn-createDB{
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+    
+ }
+#main-repair{
+    text-align:center;
+    height:auto;
+}
+

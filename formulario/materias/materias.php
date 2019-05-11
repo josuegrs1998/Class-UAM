@@ -18,33 +18,30 @@ include('../conexion.php');
 </head>
 <body>
 <div id="container">
-		<div class="sidebar">
-				<li ><a class="menu" href='../main.php'>Home</a> </li>
-                <li> <a class="menu" href='../alumnos/alumnos.php'>Alumnos</a></li>
-                <li> <a class="menu" href='../profesores/profesores.php' >Profesores</a></li>
-				<li> <a class="menu" href='materias.php'>Materias</a></li>
-				<li> <a class="menu" href='../matricula/matricula.php'>Matricula</a></li>
-				<li> <a class="menu" href='../reportes/reportes.php'>Reportes</a></li>
-				
-		</div>
+		<?php include ('../sidebar.php')?>
 
 		<div id="main">
 				<div class="contenedor-tabla"> 
 					<h2>Tabla Materias</h2>
-						<table class="tabla">
+					<input type="text" name="search" id="search" class="form-control" placeholder="Buscar en tabla" />  
+					<br>
+						<table class="tabla" id="buscador">
+								<thead>
 								<tr>
 									<td>Id Materia</td>
 									<td>Nombre</td>
 									<td>Acciones</td>
 										
 								</tr>
-
+								</thead>
 							<?php 
 							$sql="SELECT * from materias";
 							$result=mysqli_query($conexion,$sql);
 
 							while($mostrar=mysqli_fetch_array($result)){
-								echo "<tr>
+								echo "
+								<tbody>
+								<tr>
 								<td>".$mostrar['idmateria']."</td>
 								<td>".$mostrar['nombre']."</td>
 								
@@ -59,7 +56,8 @@ include('../conexion.php');
 								</button>
 								</td>
 								
-								</tr>";
+								</tr>
+								</tbody>";
 									
 							?>
 							
@@ -76,7 +74,7 @@ include('../conexion.php');
 					<p>ID Materia</p>
 					
 					<br>
-					<input type="text" name="idmateria" placeholder="Id Materia" maxlength="8" pattern="^[0-9]*$" required>
+					<input type="text" name="idmateria" placeholder="Id Materia" maxlength="8"  required>
 					<p>Nombre</p>
 					
 					<br>
@@ -93,3 +91,4 @@ include('../conexion.php');
 
 	</body>
 	</html>
+	<?php include ('../main/searchbar.php')?>

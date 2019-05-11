@@ -25,7 +25,8 @@ $_GET['cl'];
     <form action="" method="GET" autocomplete="off"  >
 		<p>CIF</p>
 		<br>
-        <input type="text" name="cif" placeholder="CIF" maxlength="8" required value="<?php echo $_GET['rn']; ?>" >
+        <input type="text" name="CIF" placeholder="CIF" maxlength="8" required value="<?php echo $_GET['rn']; ?>" DISABLED>
+       
         
 		<p>Nombre</p>
 		<br>
@@ -46,14 +47,14 @@ $_GET['cl'];
             $nombre = $_GET['nombre'];
             $apellido = $_GET['apellido'];
 
-            $query ="UPDATE alumnos SET  nombre= '$nombre', apellido='$apellido', idalumno='$idalumno' WHERE idalumno='$idalumno' or nombre= '$nombre' or apellido='$apellido'  ";
+            $query ="UPDATE alumnos SET  nombre= '$nombre', apellido='$apellido' WHERE idalumno='$idalumno' or nombre='$nombre' or apellido = '$apellido'   ";
             $data = mysqli_query($conexion, $query);
             if($data)
             {
                 header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
             }
             else{
-                header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
+               echo "error";
             }
         }
       

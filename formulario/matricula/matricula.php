@@ -18,52 +18,47 @@ include('../conexion.php');
 </head>
 <body>
 <div id="container">
-		<div class="sidebar">
-				<li ><a class="menu" href='../main.php'>Home</a> </li>
-                <li> <a class="menu" href='../alumnos/alumnos.php'>Alumnos</a></li>
-                <li> <a class="menu" href='../profesores/profesores.php' >Profesores</a></li>
-                <li> <a class="menu" href='../materias/materias.php'>Materias</a></li>
-                <li> <a class="menu" href='matricula.php'>Matricula</a></li>
-				<li> <a class="menu" href='../reportes/reportes.php'>Reportes</a></li>
-				
-		</div>
+			<?php include ('../sidebar.php')?>
 
 		<div id="main">
 				<div class="contenedor-tabla"> 
 					<h2>Matricula de clases </h2>
-						<table class="tabla">
-								<tr>
-									<td>ID Alumno</td>
-									<td>ID Materia</td>
-									<td>Acciones</td>
-										
-								</tr>
+					<input type="text" name="search" id="search" class="form-control" placeholder="Buscar en tabla" />  
+					<br>
+					<table class="tabla" id="buscador">
+						<thead>
+                            <tr>
+                                <td>ID alumno</td>
+                                <td>Nombre del alumno</td>
+                                <td>ID materia</td>
+                                <td>Materia</td>
+                                
+                                    
+                            </tr>
+						</thead>
+                        <?php 
+                        $sql="SELECT matri.idalumno, alumnos.nombre as alumnos, matri.idmateria,materias.nombre 
+                        from materias_alumnos as matri, materias, alumnos 
+                        where matri.idalumno = alumnos.idalumno and materias.idmateria = matri.idmateria";
+                        $result=mysqli_query($conexion,$sql);
 
-							<?php 
-							$sql="SELECT * from materias_alumnos ORDER BY idalumno";
-							$result=mysqli_query($conexion,$sql);
-
-							while($mostrar=mysqli_fetch_array($result)){
-								echo "<tr>
-								<td>".$mostrar['idalumno']."</td>
-								<td>".$mostrar['idmateria']."</td>
-								
-
-								<td>
-						
-
-								<button >
-								<a  href='deletematricula.php?pn=$mostrar[idmateria]&sc=$mostrar[idalumno]'>Borrar</a>
-								</button>
-								</td>
-								
-								</tr>";
-									
-							?>
-							
-						<?php 
-						}
-						?>	
+                        while($mostrar=mysqli_fetch_array($result)){
+							echo "
+							<tbody>
+							<tr>
+                            <td>".$mostrar['idalumno']."</td>
+                            <td>".$mostrar['alumnos']."</td>
+                            <td>".$mostrar['idmateria']."</td>
+                            <td>".$mostrar['nombre']."</td>
+                        
+							</tr>
+							</tbody>";
+                                
+                        ?>
+                        
+                    <?php 
+                    }
+                    ?>
                     </table>
 				
 				</div>
@@ -112,3 +107,4 @@ include('../conexion.php');
 
 	</body>
 	</html>
+	<?php include ('../main/searchbar.php')?>
