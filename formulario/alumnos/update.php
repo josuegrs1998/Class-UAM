@@ -1,5 +1,6 @@
 <?php
-	include('../conexion.php');
+    include('../conexion.php');
+    include('../Login/iniciar.php');
 error_reporting(0);
 
 $_GET['rn'];
@@ -40,21 +41,21 @@ $_GET['cl'];
 		<input type="submit" name="submit" value="Actualizar"/>
     </form>
     </div>
-        <?php
+    <?php
         if($_GET['submit'])
         {
-            $idalumno = $_GET['cif'];
+            $idalumno = $_GET['idalumno'];
             $nombre = $_GET['nombre'];
             $apellido = $_GET['apellido'];
 
-            $query ="UPDATE alumnos SET  nombre= '$nombre', apellido='$apellido' WHERE idalumno='$idalumno' or nombre='$nombre' or apellido = '$apellido'   ";
+            $query ="UPDATE alumnos SET  nombre= '$nombre', apellido='$apellido' WHERE idalumno='$idalumno' or nombre= '$nombre' or apellido='$apellido'  ";
             $data = mysqli_query($conexion, $query);
             if($data)
             {
                 header("Location: http://localhost:8080/formulario/alumnos/alumnos.php");
             }
             else{
-               echo "error";
+               echo "No se pudo actualizar";
             }
         }
       

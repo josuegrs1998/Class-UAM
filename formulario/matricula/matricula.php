@@ -1,6 +1,7 @@
 <?php 
 
 include('../conexion.php');
+include('../Login/iniciar.php');
  
  ?>
 
@@ -32,6 +33,7 @@ include('../conexion.php');
                                 <td>Nombre del alumno</td>
                                 <td>ID materia</td>
                                 <td>Materia</td>
+								<td>Acciones</td>
                                 
                                     
                             </tr>
@@ -49,7 +51,16 @@ include('../conexion.php');
                             <td>".$mostrar['idalumno']."</td>
                             <td>".$mostrar['alumnos']."</td>
                             <td>".$mostrar['idmateria']."</td>
-                            <td>".$mostrar['nombre']."</td>
+							<td>".$mostrar['nombre']."</td>
+							
+							
+							<td>
+							
+
+							<button >
+							<a  href='deletematricula.php?pn=$mostrar[idmateria]&sc=$mostrar[idalumno]'>Borrar</a>
+							</button>
+							</td>
                         
 							</tr>
 							</tbody>";

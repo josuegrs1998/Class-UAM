@@ -1,5 +1,6 @@
 <?php
 include('../conexion.php');
+include('../Login/iniciar.php');
 	
 	//recuperar las variables
 	$cif=$_POST['cif'];

@@ -15,7 +15,7 @@ if(mysqli_query($link, $base)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
-$conn = mysqli_connect("localhost", "josue", "password", "universidad");
+$conn = mysqli_connect("localhost", "root", "", "universidad");
 
 //tabla facultades
 $facultades= "CREATE table if not exists facultades(
@@ -198,6 +198,19 @@ if (mysqli_query($conn, $pensum)) {
         echo "Error al crear la tabla: " . mysqli_error($conn);
     }  
 
+        //tabla login
+       $login = "CREATE table if not exists login(
+        usuario varchar(50) not null,
+        clave varchar(40) not null,
+        primary key (usuario)
+        
+        )Engine = innodb;";
+
+        if (mysqli_query($conn, $login)) {
+        } else {
+       echo "Error al crear la tabla: " . mysqli_error($conn);
+        }  
+
        //tabla materias docentes
        $materiasdocentes= "CREATE table if not exists materia_docente(
         idmateria varchar(5) not null, 
@@ -214,11 +227,48 @@ if (mysqli_query($conn, $pensum)) {
            echo "Error al crear la tabla: " . mysqli_error($conn);
        }  
 
+
+
+        //Creacion cuenta admin NO LO HACE
+       $admin= "INSERT into login (usuario, clave) values ('admin','root');";
+     
+       if (mysqli_query($conn, $login)) {
+       } else {
+           echo "Error poner el registro" . mysqli_error($conn);
+       } 
+
     
-       header("Location: http://localhost:8080/formulario/main.php");
+    
+       //trigger para alumnos -->login NO LO HACE
+       $cuentaalumnos= "
+       DELIMITER $$
+        create trigger cuentas_alumnos after insert on alumnos
+        for each row
+        begin
+        insert into login(usuario, clave) values (new.idalumno, '12345678');
+        
+        END $$
+        DELIMITER $$;
+       ";
 
+        //trigger para borrar cuentas de alumnos -->login NO LO HACE
+        $borrarcuentas= "
+        DELIMITER $$
+        create trigger borrar_cuentas after delete on alumnos
+        for each row
+        begin
+        delete from login where usuario = old.idalumno;
+        
+        END $$
+        DELIMITER $$;
+        ";
+     
+       if (mysqli_query($conn, $borrarcuentas)) {
+       } else {
+           echo "Error al crear la tabla: " . mysqli_error($conn);
+       }  
 
-
+       header("Location: http://localhost:8080/formulario/main/main.php");
 
  
 // Close connection

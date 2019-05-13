@@ -1,10 +1,10 @@
 <?php 
-
 include('../conexion.php');
+
+include('../Login/iniciar.php');
+
+?>
 	
-	?>
-
-
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -39,3 +39,5 @@ include('../conexion.php');
 
 		</body>
 		</html>
+	
+	

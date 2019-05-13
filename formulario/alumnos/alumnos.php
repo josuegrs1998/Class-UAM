@@ -1,6 +1,7 @@
 	<?php 
 
 		include('../conexion.php');
+		include('../Login/iniciar.php');
 	
 	?>
 
@@ -20,6 +21,9 @@
 	
 	<div id="container">
 	<?php include ('../sidebar.php')?>
+
+	
+
 
 			<div id="main">
 					<div class="contenedor-tabla"> 
@@ -87,9 +91,11 @@
 					<input type="text" name="apellido" placeholder="Apellido" maxlength="25" pattern="^[A-Za-z]+$" required>
 						<br>
 						<br>
-						<input type="submit" value="Enviar"/>
+						<input href='guardar.php' type="submit" value="Enviar"/>
+				
 					</form>
 				</div>
+				
 		</div>
 		</div>
 		<style>
@@ -98,7 +104,7 @@
 				height: 500px;
 			}
 		</style>
-		
+	
 
 		</body>
 		</html>

@@ -1,6 +1,6 @@
 <?php 
 include('../conexion.php');
-
+include('../Login/iniciar.php');
 $idalumno = $_GET['rn'];
 $query = "DELETE   from alumnos where idalumno = '$idalumno'";
 

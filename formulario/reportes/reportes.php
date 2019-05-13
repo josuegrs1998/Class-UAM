@@ -1,6 +1,7 @@
 <?php 
 
 include('../conexion.php');
+include('../Login/iniciar.php');
 
 ?>
 

@@ -6,5 +6,6 @@
 				<li> <a class="menu" href='../materias/materias.php'> Materias</a></li>
 				<li> <a class="menu" href='../matricula/matricula.php'>Matricula</a></li>
 				<li> <a class="menu" href='../reportes/reportes.php'>Reportes</a></li>
+				<li> <a class="menu" href='../Login/salir.php'>Cerrar Sesion</a></li>
                 
 </div>
